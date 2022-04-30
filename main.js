@@ -2,14 +2,10 @@ class TodoList {
     constructor(items) {
         this.items = [];
     }
-    
-    add(TodoItem) {
-        if (TodoItem.title && TodoItem.description !== undefined) {
-            this.items.push(TodoItem)
-        } else { 
-            alert("Задача не добавлена ")
-        };
-        
+
+    add(params) {
+        const newTodoItem = new TodoItem(params)
+        this.items.push(newTodoItem)
     };
 
         completeAll(id) {
@@ -25,14 +21,10 @@ class TodoItem {
         this.done = false;
     };
 };
+const newList = new TodoList();
 
-const creatingTodoList = new TodoList();
-const todoItem = new TodoItem(1);
-const todoItem01 = new TodoItem(2);
-const todoItem02 = new TodoItem(3);
-creatingTodoList.add(todoItem);
-creatingTodoList.add(todoItem01);
-creatingTodoList.add(todoItem02);
-creatingTodoList.completeAll(1);
-creatingTodoList.completeAll(2);
-console.log(creatingTodoList.items);
+newList.add(1)
+newList.add(2)
+newList.add(3)
+newList.completeAll(2)
+console.log(newList.items);
